@@ -35,4 +35,8 @@ class PruebasNutricion
 	def kilojulios
 		(@grasas*37)+(@hidratos_carbono*17)+(@proteinas*17)+(@sal*25)
 	end
+	
+	def kilocalorias
+		(@grasas*9)+(@hidratos_carbono*4)+(@proteinas*4)+(@sal*6)
+	end
 end
