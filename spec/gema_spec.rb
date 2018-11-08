@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe PruebasNutricion do
 	before :all do
 		
-		@cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0)
+		@cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0)
 
 	end
 
@@ -24,6 +24,10 @@ RSpec.describe PruebasNutricion do
 
 		it "Existe una cantidad de hidratos de carbono" do
 			expect(@cereales_chocolate.hidratos_carbono).to eq(82.0)
+		end
+
+		it "Existe una cantidad de azúcares para el alimento" do
+			expect(@cereales_chocolate.azucares).to eq(7.0)
 		end
 
 	end
