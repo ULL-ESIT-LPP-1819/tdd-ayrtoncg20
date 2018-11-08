@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe PruebasNutricion do
 	before :all do
 		
-		@cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0)
+		@cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
 
 	end
 
@@ -35,7 +35,9 @@ RSpec.describe PruebasNutricion do
 		end
 
 		
-
+		it "Existe una cantidad de sal en el alimento" do
+			expect(@cereales_chocolate.sal).to eq(1.6)
+		end
 	end
 end
 
