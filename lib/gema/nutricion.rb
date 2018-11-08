@@ -1,5 +1,5 @@
 class PruebasNutricion
-
+	
 	def initialize(nombre, grasas, grasas_saturadas, hidratos_carbono, azucares, proteinas, sal)
 		@nombre, @grasas, @grasas_saturadas, @hidratos_carbono, @azucares, @proteinas, @sal = nombre, grasas, grasas_saturadas, hidratos_carbono, azucares, proteinas, sal
 	end
@@ -46,5 +46,9 @@ class PruebasNutricion
 
 	def ingesta_recomendada_proteinas
 		(@proteinas*100)/50
+	end
+
+	def to_s
+		"[#{nombre_etiqueta}, Grasas=#{grasas}, GrasasSaturadas=#{grasas_saturadas}, HidratosCarbono=#{hidratos_carbono}, Azucares=#{azucares}, Proteinas=#{proteinas}, Sal=#{sal}]:"
 	end
 end
