@@ -54,6 +54,10 @@ RSpec.describe PruebasNutricion do
 		it "Existe una cantidad de porcentaje de lo que equivale el alimento en la ingesta recomendada para las proteinas" do
 			expect(@cereales_chocolate.ingesta_recomendada_proteinas).to eq((8.0*100)/50)
 		end
+
+		it "Existe una etiqueta formateada" do
+			expect(@cereales_chocolate.to_s).to eq("[#{@cereales_chocolate.nombre_etiqueta}, Grasas=#{@cereales_chocolate.grasas}, GrasasSaturadas=#{@cereales_chocolate.grasas_saturadas}, HidratosCarbono=#{@cereales_chocolate.hidratos_carbono}, Azucares=#{@cereales_chocolate.azucares}, Proteinas=#{@cereales_chocolate.proteinas}, Sal=#{@cereales_chocolate.sal}]:")
+		end 
 	end
 end
 
