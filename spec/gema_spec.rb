@@ -47,11 +47,11 @@ RSpec.describe PruebasNutricion do
 			expect(@cereales_chocolate.kilocalorias).to eq((0.8*9)+(82.0*4)+(8.0*4)+(1.6*6))
 		end
 
-		it "Existe una cantidad en porcentaje de lo que equivale el alimento en la ingesta recomendada de la grasa" do
+		it "Existe una cantidad en porcentaje de lo que equivale el alimento en la ingesta recomendada de la grasa" do #El porcentaje de grasas está por debajo de la IR"
 			expect(@cereales_chocolate.ingesta_recomendada).to eq((0.8*100)/70)
 		end
 
-		it "Existe una cantidad de porcentaje de lo que equivale el alimento en la ingesta recomendada para las proteinas" do
+		it "Existe una cantidad de porcentaje de lo que equivale el alimento en la ingesta recomendada para las proteinas" do #El porcentaje de proteinas está por debajo de la IR"
 			expect(@cereales_chocolate.ingesta_recomendada_proteinas).to eq((8.0*100)/50)
 		end
 
