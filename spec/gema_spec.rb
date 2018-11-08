@@ -42,6 +42,10 @@ RSpec.describe PruebasNutricion do
 		it "Eixste una cantidad de Kilojulios para el alimento" do
 			expect(@cereales_chocolate.kilojulios).to eq((0.8*37)+(82.0*17)+(8.0*17)+(1.6*25))
 		end
+
+		it "Existe una cantidad de kilocalorias para el alimento" do
+			expect(@cereales_chocolate.kilocalorias).to eq((0.8*9)+(82.0*4)+(8.0*4)+(1.6*6))
+		end
 	end
 end
 
