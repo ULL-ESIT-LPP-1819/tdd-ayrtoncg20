@@ -50,6 +50,10 @@ RSpec.describe PruebasNutricion do
 		it "Existe una cantidad en porcentaje de lo que equivale el alimento en la ingesta recomendada de la grasa" do
 			expect(@cereales_chocolate.ingesta_recomendada).to eq((0.8*100)/70)
 		end
+
+		it "Existe una cantidad de porcentaje de lo que equivale el alimento en la ingesta recomendada para las proteinas" do
+			expect(@cereales_chocolate.ingesta_recomendada_proteinas).to eq((8.0*100)/50)
+		end
 	end
 end
 
