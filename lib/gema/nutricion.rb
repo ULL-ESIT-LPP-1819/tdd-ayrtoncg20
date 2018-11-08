@@ -31,4 +31,8 @@ class PruebasNutricion
 	def sal
 		@sal
 	end
+
+	def kilojulios
+		(@grasas*37)+(@hidratos_carbono*17)+(@proteinas*17)+(@sal*25)
+	end
 end
