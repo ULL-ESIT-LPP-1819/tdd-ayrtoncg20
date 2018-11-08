@@ -43,4 +43,8 @@ class PruebasNutricion
 	def ingesta_recomendada
 		(@grasas*100)/70
 	end
+
+	def ingesta_recomendada_proteinas
+		(@proteinas*100)/50
+	end
 end
