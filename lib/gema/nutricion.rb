@@ -1,7 +1,7 @@
 class PruebasNutricion
 
-	def initialize(nombre, grasas, grasas_saturadas, hidratos_carbono, azucares, proteinas)
-		@nombre, @grasas, @grasas_saturadas, @hidratos_carbono, @azucares, @proteinas = nombre, grasas, grasas_saturadas, hidratos_carbono, azucares, proteinas
+	def initialize(nombre, grasas, grasas_saturadas, hidratos_carbono, azucares, proteinas, sal)
+		@nombre, @grasas, @grasas_saturadas, @hidratos_carbono, @azucares, @proteinas, @sal = nombre, grasas, grasas_saturadas, hidratos_carbono, azucares, proteinas, sal
 	end
 
 	def nombre_etiqueta
@@ -26,5 +26,9 @@ class PruebasNutricion
 
 	def proteinas
 		@proteinas
+	end
+
+	def sal
+		@sal
 	end
 end
