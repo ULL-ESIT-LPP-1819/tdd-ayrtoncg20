@@ -39,4 +39,8 @@ class PruebasNutricion
 	def kilocalorias
 		(@grasas*9)+(@hidratos_carbono*4)+(@proteinas*4)+(@sal*6)
 	end
+
+	def ingesta_recomendada
+		(@grasas*100)/70
+	end
 end
