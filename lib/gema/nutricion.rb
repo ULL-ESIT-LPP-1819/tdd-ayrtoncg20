@@ -7,5 +7,6 @@ class PruebasNutricion
 	def nombre_etiqueta
 		@nombre
 	end
+	
 		
 end
