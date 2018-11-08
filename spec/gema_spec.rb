@@ -46,6 +46,10 @@ RSpec.describe PruebasNutricion do
 		it "Existe una cantidad de kilocalorias para el alimento" do
 			expect(@cereales_chocolate.kilocalorias).to eq((0.8*9)+(82.0*4)+(8.0*4)+(1.6*6))
 		end
+
+		it "Existe una cantidad en porcentaje de lo que equivale el alimento en la ingesta recomendada de la grasa" do
+			expect(@cereales_chocolate.ingesta_recomendada).to eq((0.8*100)/70)
+		end
 	end
 end
 
