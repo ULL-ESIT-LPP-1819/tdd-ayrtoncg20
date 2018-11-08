@@ -38,6 +38,10 @@ RSpec.describe PruebasNutricion do
 		it "Existe una cantidad de sal en el alimento" do
 			expect(@cereales_chocolate.sal).to eq(1.6)
 		end
+
+		it "Eixste una cantidad de Kilojulios para el alimento" do
+			expect(@cereales_chocolate.kilojulios).to eq((0.8*37)+(82.0*17)+(8.0*17)+(1.6*25))
+		end
 	end
 end
 
