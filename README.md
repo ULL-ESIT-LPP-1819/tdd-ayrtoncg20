@@ -2,7 +2,7 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gema`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+La gema trata de la práctica 6 de LPP, donde se hicieron primero las pruebas y luego se puso lo suficiente del codigo para que las pruebas no fallaran, TDD.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Hay que utilizar el comando Rake y ya se ejecuta.
 
 ## Development
 
