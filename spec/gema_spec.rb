@@ -80,6 +80,11 @@ RSpec.describe PruebasNutricion do
 				expect(@lista.tail.value).to eq(nil)
 				expect(@lista.size).to eq(0)
 			end
+
+			it "Existe un nodo inicio donde next y prev estén vacíos" do
+				expect(@lista.head.next).to eq(nil)
+				expect(@lista.tail.prev).to eq(nil)
+			end 
 		end
 		
 	end
