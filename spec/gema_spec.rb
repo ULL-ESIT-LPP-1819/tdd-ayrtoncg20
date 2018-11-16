@@ -63,6 +63,13 @@ RSpec.describe PruebasNutricion do
 	describe Lista do 
 		before :all do
 			@lsita = Lista.new()
+		        @cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+			@cereales_miel = PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
+			@donettes = PruebasNutricion.new("Donettes", 1.0, 0.5, 89.0, 9.0, 9.0, 1.9)
+			@galletas = PruebasNutricion.new("Galletas", 0.8, 0.1, 34.0, 2.0, 3.0, 3.6)
+			@leche = PruebasNutricion.new("Leche", 0.8, 0.1, 10.0, 2.0, 1.0, 1.0)
+			@tomate = PruebasNutricion.new("Tomate", 0.4, 0.5, 42.0, 3.0, 4.0, 0.5)
+			@mermelada = PruebasNutricion.new("Mermelada", 0.8, 0.6, 23.0, 15.0, 8.0, 1.4)
 		end
 	end
 end
