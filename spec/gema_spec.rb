@@ -107,6 +107,10 @@ RSpec.describe PruebasNutricion do
 			it "Existe un tail que es el último elemento insertado" do
 				expect(@lista.tail.value).to eq(@mermelada)
 			end
+
+			it "Existe un método para extraer el primer elemento de la lista" do
+				expect(@lista.extraer_nodo_head()).to eq(@cereales_chocolate)
+			end
 		end
 		
 	end
