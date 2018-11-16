@@ -84,7 +84,17 @@ RSpec.describe PruebasNutricion do
 			it "Existe un nodo inicio donde next y prev estén vacíos" do
 				expect(@lista.head.next).to eq(nil)
 				expect(@lista.tail.prev).to eq(nil)
-			end 
+			end
+			
+			it "Existe un método para insertar elementos en la lista" do
+				expect(@lista.insertar_nodo(@cereales_chocolate)).to eq(@cereales_chocolate)
+				expect(@lista.insertar_nodo(@cereales_miel)).to eq(@cereales_miel)
+				expect(@lista.insertar_nodo(@donettes)).to eq(@donettes)
+				expect(@lista.insertar_nodo(@galletas)).to eq(@galletas)
+				expect(@lista.insertar_nodo(@leche)).to eq(@leche)
+				expect(@lista.insertar_nodo(@tomate)).to eq(@tomate)
+				expect(@lista.insertar_nodo(@mermelada)).to eq(@mermelada)
+ 			end
 		end
 		
 	end
