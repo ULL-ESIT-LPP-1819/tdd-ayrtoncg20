@@ -43,6 +43,7 @@ class Lista
 		@head.prev = nil
 		nodo.next = nil
 		nodo.prev = nil
+		@size -= 1
 		return valor
 	end	
 end
