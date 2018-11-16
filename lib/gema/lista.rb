@@ -1,5 +1,12 @@
+Node = Struct.new(:value, :next, :prev)
 
+class Lista
 
-#class Lista
+	attr_accessor :head, :tail, :size
 
-#end
+	def initialize()
+		@head = Node.new(nil,nil,nil)
+		@tail = Node.new(nil,nil,nil)
+	end
+
+end
