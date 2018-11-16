@@ -49,6 +49,8 @@ class Lista
 			nodo = @head
 			valor = @head.value
 			@head = nil
+			@tail = nil
+			@value = nil
 			nodo.next = nil
 			nodo.prev = nil
 			@size -= 1
