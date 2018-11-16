@@ -95,6 +95,10 @@ RSpec.describe PruebasNutricion do
 				expect(@lista.insertar_nodo(@tomate)).to eq(@tomate)
 				expect(@lista.insertar_nodo(@mermelada)).to eq(@mermelada)
  			end
+
+			it "Existe una lista que ya no está vacía" do
+				expect(@lista.empty).to eq(false)
+			end
 		end
 		
 	end
