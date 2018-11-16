@@ -7,6 +7,15 @@ class Lista
 	def initialize()
 		@head = Node.new(nil,nil,nil)
 		@tail = Node.new(nil,nil,nil)
+		@size = 0
 	end
-
+	
+	def empty()
+		if (@size != 0)
+			return false
+		else 
+			return true
+		end
+	end
+	
 end
