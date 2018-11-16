@@ -71,6 +71,14 @@ RSpec.describe PruebasNutricion do
 			@tomate = PruebasNutricion.new("Tomate", 0.4, 0.5, 42.0, 3.0, 4.0, 0.5)
 			@mermelada = PruebasNutricion.new("Mermelada", 0.8, 0.6, 23.0, 15.0, 8.0, 1.4)
 		end
+
+		describe "Listas" do
+		
+			it "Existe una lista vacía con head y tail nulos" do
+				expect(@lista.empty).to eq(true)
+			end
+		end
+		
 	end
 end
 
