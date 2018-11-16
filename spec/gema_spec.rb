@@ -59,5 +59,11 @@ RSpec.describe PruebasNutricion do
 			expect(@cereales_chocolate.to_s).to eq("[#{@cereales_chocolate.nombre_etiqueta}, Grasas=#{@cereales_chocolate.grasas}, GrasasSaturadas=#{@cereales_chocolate.grasas_saturadas}, HidratosCarbono=#{@cereales_chocolate.hidratos_carbono}, Azucares=#{@cereales_chocolate.azucares}, Proteinas=#{@cereales_chocolate.proteinas}, Sal=#{@cereales_chocolate.sal}]:")
 		end 
 	end
+
+	describe Lista do 
+		before :all do
+			@lsita = Lista.new()
+		end
+	end
 end
 
