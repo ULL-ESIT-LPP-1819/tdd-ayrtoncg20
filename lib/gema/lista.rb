@@ -34,5 +34,15 @@ class Lista
 			@size +=1
 			return @tail.value
 		end	
+	end
+
+	def extraer_nodo_head
+		nodo = @head
+		valor = @head.value
+		@head = @head.next
+		@head.prev = nil
+		nodo.next = nil
+		nodo.prev = nil
+		return valor
 	end	
 end
