@@ -99,6 +99,10 @@ RSpec.describe PruebasNutricion do
 			it "Existe una lista que ya no está vacía" do
 				expect(@lista.empty).to eq(false)
 			end
+
+			it "Existe un head que es el primero elemento insertado" do
+				expect(@lista.head.value).to eq(@cereales_chocolate)
+			end
 		end
 		
 	end
