@@ -111,6 +111,10 @@ RSpec.describe PruebasNutricion do
 			it "Existe un método para extraer el primer elemento de la lista" do
 				expect(@lista.extraer_nodo_head()).to eq(@cereales_chocolate)
 			end
+			
+			it "Existe un método para comprobar que se puede acceder a la sal del nodo" do
+				expect(@lista.extraer_nodo_head.sal).to eq(@cereales_miel.sal)
+			end
 		end
 		
 	end
