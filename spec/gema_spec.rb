@@ -76,6 +76,9 @@ RSpec.describe PruebasNutricion do
 		
 			it "Existe una lista vacía con head y tail nulos" do
 				expect(@lista.empty).to eq(true)
+				expect(@lista.head.value).to eq(nil)
+				expect(@lista.tail.value).to eq(nil)
+				expect(@lista.size).to eq(0)
 			end
 		end
 		
