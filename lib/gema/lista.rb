@@ -24,12 +24,14 @@ class Lista
 			nodo = Node.new(value,nil,nil)
 			@tail = nodo
 			@head = nodo
+			@size +=1
 			return @tail.value
 		else
 			nodo = Node.new(value,nil,tail)
 			@tail.next = nodo
 			nodo.prev = @tail
 			@tail = nodo
+			@size +=1
 			return @tail.value
 		end	
 	end	
