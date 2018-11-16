@@ -103,6 +103,10 @@ RSpec.describe PruebasNutricion do
 			it "Existe un head que es el primero elemento insertado" do
 				expect(@lista.head.value).to eq(@cereales_chocolate)
 			end
+
+			it "Existe un tail que es el último elemento insertado" do
+				expect(@lista.tail.value).to eq(@mermelada)
+			end
 		end
 		
 	end
