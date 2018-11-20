@@ -21,5 +21,9 @@ RSpec.describe Individuo do
 			expect(@individuo1.edad).to eq(23.0)
 		end
 
+		it "Existe un sexo para el individuo" do
+			expect(@individuo1.sexo).to eq(1.0)
+		end
+
 	end
 end
