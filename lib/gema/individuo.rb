@@ -14,11 +14,11 @@ end
 class Paciente < Individuo 
 
 
-#	attr_accessor :peso, :talla
-#	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo)
-#		super(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo)
-#		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo	
-#	end
+	attr_accessor :peso, :talla
+	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo)
+		super(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo)
+		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo	
+	end
 
 end
 
