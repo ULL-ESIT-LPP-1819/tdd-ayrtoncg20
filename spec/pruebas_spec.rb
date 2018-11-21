@@ -15,6 +15,10 @@ RSpec.describe Individuo do
 
 	 	it "Existe un método para comprobar el tipo de objeto" do
       			expect(@ayrton.instance_of? Individuo).to eq(true)
+			expect(@ayrton.instance_of? Object).not_to eq(true)
+			expect(@ayrton.instance_of? BasicObject).not_to eq(true)
+			expect(@ayrton).to respond_to(:numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo, :edad)
+			expect(@ayrton).to respond_to('to_s') 
     		end
 
    		it "Existe un método para comprobar la clase de un objeto" do
@@ -82,6 +86,13 @@ RSpec.describe Individuo do
 			
 		        it "Existe un método para comprobar el tipo de objeto" do
           			expect(@ayrton.instance_of? Paciente).to eq(true)
+				expect(@ayrton.instance_of? Object).not_to eq(true)
+				expect(@ayrton.instance_of? BasicObject).not_to eq(true)
+				expect(@ayrton).to respond_to(:numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo, :edad, :peso, :talla, :cintura, :cadera, :bicipital, :tricipital, :subescapular, :suprailiaco, :brazo)
+				expect(@ayrton).to respond_to('to_s')
+				expect(@ayrton).to respond_to('imc')
+				expect(@ayrton).to respond_to('porcentajegrasa')
+				expect(@ayrton).to respond_to('RCC')
         		end
 
        			it "Existe un método para comprobar la clase de un objeto" do
@@ -147,6 +158,58 @@ RSpec.describe Individuo do
 				expect(@lista.extraer_nodo_head.imc).to be <= 39.9 #Obesidad grado 2. Recibe tratamiento
 				expect(@lista.extraer_nodo_head.imc).to be >= 40.0 #Obesidad grado 3. Recibe tratamiento
 			end
+
+			it "Existe un método para comprobar el tipo de objeto" do
+	                        expect(@lista.instance_of? Lista).to eq(true)
+        	                expect(@lista.instance_of? Object).not_to eq(true)
+                	        expect(@lista.instance_of? BasicObject).not_to eq(true)
+                       		expect(@lista).to respond_to(:head, :tail, :size)
+                        	expect(@lista).to respond_to('empty')
+				expect(@lista).to respond_to('insertar_nodo')
+				expect(@lista).to respond_to('extraer_nodo_head')
+               		end
+
+                	it "Existe un método para comprobar la clase de un objeto" do
+                        	expect(@lista.class).to eq(Lista)
+                        	expect(@lista.is_a? Lista).to eq(true)
+                	end
+
+                	it "Existe un método para comprobar la jerarquía de un objeto" do
+                        	expect(@lista.kind_of? Lista).to eq(true)
+                        	expect(@lista.kind_of? BasicObject).to eq(true)
+                        	expect(@lista.kind_of? Object).to eq(true)
+                	end
+		end
+	end
+
+	describe PruebasNutricion do
+		before :each do
+			@cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+		end
+	
+		describe "expectativas" do
+		
+			it "Existe un método para comprobar el tipo de objeto" do
+                                expect(@cereales_chocolate.instance_of? PruebasNutricion).to eq(true)
+                                expect(@cereales_chocolate.instance_of? Object).not_to eq(true)
+                                expect(@cereales_chocolate.instance_of? BasicObject).not_to eq(true)
+                                expect(@cereales_chocolate).to respond_to(:nombre_etiqueta, :grasas, :grasas_saturadas, :hidratos_carbono, :azucares, :proteinas, :sal)
+				expect(@cereales_chocolate).to respond_to('kilojulios')
+                                expect(@cereales_chocolate).to respond_to('kilocalorias')
+                                expect(@cereales_chocolate).to respond_to('ingesta_recomendada')
+				expect(@cereales_chocolate).to respond_to('to_s')
+                        end
+
+                        it "Existe un método para comprobar la clase de un objeto" do
+                                expect(@cereales_chocolate.class).to eq(PruebasNutricion)
+                                expect(@cereales_chocolate.is_a? PruebasNutricion).to eq(true)
+                        end
+
+                        it "Existe un método para comprobar la jerarquía de un objeto" do
+                                expect(@cereales_chocolate.kind_of? PruebasNutricion).to eq(true)
+                                expect(@cereales_chocolate.kind_of? BasicObject).to eq(true)
+                                expect(@cereales_chocolate.kind_of? Object).to eq(true)
+                        end
 		end
 	end
 end
