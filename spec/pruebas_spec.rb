@@ -74,7 +74,12 @@ RSpec.describe Individuo do
 	
 			it "Existe un brazo para el individuo" do
 				expect(@ayrton.brazo).to eq((20.0+20.8)/2)
-			end			
+			end
+
+			it "Existe un paciente formateado" do
+                        	expect(@ayrton.to_s).to eq("[Peso=#{@ayrton.peso}, Talla=#{@ayrton.talla}, Cintura=#{@ayrton.cintura}, Cadera=#{@ayrton.cadera}, Bicipital=#{@ayrton.bicipital}, Tricipital=#{@ayrton.tricipital}, Subescapular=#{@ayrton.subescapular}, Suprailiaco=#{@ayrton.suprailiaco}, Brazo=#{@ayrton.brazo}]:")
+                	end
+			
 		end
 	end
 end
