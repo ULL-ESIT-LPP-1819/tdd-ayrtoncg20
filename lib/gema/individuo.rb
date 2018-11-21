@@ -20,6 +20,10 @@ class Paciente < Individuo
 		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo	
 	end
 
+	def to_s
+                "[Peso=#{@peso}, Talla=#{@talla}, Cintura=#{cintura}, Cadera=#{cadera}, Bicipital=#{bicipital}, Tricipital=#{tricipital}, Subescapular=#{subescapular}, Suprailiaco=#{suprailiaco}, Brazo=#{brazo}]:"
+        end
+
 	def bicipital
 		(@bicipital[0] + @bicipital[1] + @bicipital[2])/3
 	end
