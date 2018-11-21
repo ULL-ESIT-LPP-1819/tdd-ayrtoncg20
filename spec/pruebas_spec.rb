@@ -103,10 +103,10 @@ RSpec.describe Individuo do
 		before :all do
 			@lista = Lista.new()
 				@sara = Paciente.new(1, "Sara", "Perez", "17-08-1995", "Estudiante", "No", 0, 23, 64.0, 1.64, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8])
-				@eduardo = Paciente.new(2, "Eduardo", "Escobar", "13-02-1995", "Estudiante", "No", 1, 23, 70.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1])
-				@saray = Paciente.new(3, "Saray", "Garcia", "01-02-2008", "Estudiante", "No", 0, 10, 45.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1])
-				@joseLuis = Paciente.new(4, "Jose Luis", "Crespo", "27-03-1961", "Parado", "No", 1, 55, 98.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8])
-				@rosy = Paciente.new(5, "Rosa", "Garcia", "01-05-1962", "Parada", "No", 0, 54, 87.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1])
+				@eduardo = Paciente.new(2, "Eduardo", "Escobar", "13-02-1995", "Estudiante", "No", 1, 23, 85.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1])
+				@saray = Paciente.new(3, "Saray", "Garcia", "01-02-2008", "Estudiante", "No", 0, 10, 69.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1])
+				@joseLuis = Paciente.new(4, "Jose Luis", "Crespo", "27-03-1961", "Parado", "No", 1, 55, 105.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8])
+				@rosy = Paciente.new(5, "Rosa", "Garcia", "01-05-1962", "Parada", "No", 0, 54, 130.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1])
 			end
 
 
@@ -126,6 +126,10 @@ RSpec.describe Individuo do
 
 			it "Existe un metodo para insertar elementos en la lista" do
 				expect(@lista.insertar_nodo(@sara)).to eq(@sara)
+				expect(@lista.insertar_nodo(@eduardo)).to eq(@eduardo)
+				expect(@lista.insertar_nodo(@saray)).to eq(@saray)
+				expect(@lista.insertar_nodo(@joseLuis)).to eq(@joseLuis)
+				expect(@lista.insertar_nodo(@rosy)).to eq(@rosy)
 			end
 
 			it "Existe una lista que ya no está vacía" do
@@ -134,6 +138,14 @@ RSpec.describe Individuo do
 
 			it "Existe un head que es el primer elemento insertado" do
 				expect(@lista.head.value).to eq(@sara)
+			end
+
+			it "Existe una clasificacion de la OMS segun el IMC" do
+				expect(@lista.extraer_nodo_head.imc).to be <= 24.9 #Peso adecuado. No recibe tratamiento
+				expect(@lista.extraer_nodo_head.imc).to be <= 29.9 #Sobrepeso. Recibe tratamiento
+				expect(@lista.extraer_nodo_head.imc).to be <= 34.9 #Obesidad grado 1. Recibe tratamiento
+				expect(@lista.extraer_nodo_head.imc).to be <= 39.9 #Obesidad grado 2. Recibe tratamiento
+				expect(@lista.extraer_nodo_head.imc).to be >= 40.0 #Obesidad grado 3. Recibe tratamiento
 			end
 		end
 	end
