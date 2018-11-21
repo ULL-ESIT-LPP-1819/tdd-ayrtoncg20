@@ -1,12 +1,12 @@
 class Individuo
 	
-	attr_accessor :numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo
-	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo)
-		@numero_historia, @nombre, @apellido, @fecha_nacimiento, @ocupacion, @fumador, @sexo = numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo
+	attr_accessor :numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo, :edad
+	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad)
+		@numero_historia, @nombre, @apellido, @fecha_nacimiento, @ocupacion, @fumador, @sexo, @edad = numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad
 	end
 
 	def to_s
-		"[Numero De Historia=#{@numero_historia}, Nombre=#{@nombre}, Apellido=#{@apellido}, Fecha De Nacimiento=#{@fecha_nacimiento}, Ocupacion=#{@ocupacion}, Fumador=#{@fumador}, Sexo=#{@sexo}]:"
+		"[Numero De Historia=#{@numero_historia}, Nombre=#{@nombre}, Apellido=#{@apellido}, Fecha De Nacimiento=#{@fecha_nacimiento}, Ocupacion=#{@ocupacion}, Fumador=#{@fumador}, Sexo=#{@sexo}, Edad=#{@edad}]:"
 	end
 end
 
@@ -15,8 +15,8 @@ class Paciente < Individuo
 
 
 	attr_accessor :peso, :talla
-	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo)
-		super(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo)
+	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad, peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo)
+		super(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad)
 		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo	
 	end
 
@@ -40,5 +40,24 @@ class Paciente < Individuo
 		(@suprailiaco[0] + @suprailiaco[1] + @suprailiaco[2])/3
 	end
 
+	def porcentajegrasa
+		1.2 * imc + 0.23 * @edad - 10.8 * @sexo - 5.4
+	end
+
+	def cintura
+		(@cintura[0] + @cintura[1])/2
+	end
+
+	def cadera
+		(@cadera[0] + @cadera[1])/2
+	end
+
+	def RCC
+		cintura/cadera
+	end
+
+	def brazo
+		(@brazo[0] + @brazo[1])/2
+	end
 end
 
