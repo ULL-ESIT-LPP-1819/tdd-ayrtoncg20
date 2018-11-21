@@ -32,13 +32,13 @@ class Paciente < Individuo
 	#	@peso/(@talla*@talla)
 	#end
 
-	#def subescapular
-	#	(@subescapular[0] + @subescapular[1] + @subescapular[2])/3
-	#end
+	def subescapular
+		(@subescapular[0] + @subescapular[1] + @subescapular[2])/3
+	end
 
-	#def suprailiaco
-	#	(@suprailiaco[0] + @suprailiaco[1] + @suprailiaco[2])/3
-	#end
+	def suprailiaco
+		(@suprailiaco[0] + @suprailiaco[1] + @suprailiaco[2])/3
+	end
 
 end
 
