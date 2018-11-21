@@ -43,6 +43,14 @@ RSpec.describe Individuo do
 			it "Existe un tricipital para el individuo" do
 				expect(@ayrton.tricipital).to eq((2.8+2.9+3.0)/3)
 			end
+
+			it "Existe un subescapular para el individuo" do
+				expect(@ayrton.subescapular).to eq((3.1+3.2+3.3)/3)
+			end
+			
+			it "Existe un suprailiaco para el individuo" do
+				expect(@ayrton.suprailiaco).to eq((3.4+3.5+3.6)/3)
+			end
 		end
 	end
 end
