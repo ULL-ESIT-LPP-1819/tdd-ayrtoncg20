@@ -80,6 +80,22 @@ RSpec.describe Individuo do
                         	expect(@ayrton.to_s).to eq("[Peso=#{@ayrton.peso}, Talla=#{@ayrton.talla}, Cintura=#{@ayrton.cintura}, Cadera=#{@ayrton.cadera}, Bicipital=#{@ayrton.bicipital}, Tricipital=#{@ayrton.tricipital}, Subescapular=#{@ayrton.subescapular}, Suprailiaco=#{@ayrton.suprailiaco}, Brazo=#{@ayrton.brazo}]:")
                 	end
 			
+		        it "Existe un método para comprobar el tipo de objeto" do
+          			expect(@ayrton.instance_of? Paciente).to eq(true)
+        		end
+
+       			it "Existe un método para comprobar la clase de un objeto" do
+          			expect(@ayrton.class).to eq(Paciente)
+          			expect(@ayrton.is_a? Individuo).to eq(true)
+          			expect(@ayrton.is_a? Paciente).to eq(true)
+        		end
+
+       		 	it "Existe un método para comprobar la jerarquía de un objeto" do
+         	 		expect(@ayrton.kind_of? Individuo).to eq(true)
+          			expect(@ayrton.kind_of? Paciente).to eq(true)
+          			expect(@ayrton.kind_of? BasicObject).to eq(true)
+          			expect(@ayrton.kind_of? Object).to eq(true)
+        		end			
 		end
 	end
 end
