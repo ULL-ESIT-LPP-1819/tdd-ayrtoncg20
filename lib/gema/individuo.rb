@@ -24,10 +24,21 @@ class Paciente < Individuo
 		(@bicipital[0] + @bicipital[1] + @bicipital[2])/3
 	end
 
-	def imc 
-		@peso/(@talla*@talla)
+	def tricipital 
+		(@tricipital[0] + @tricipital[1] + @tricipital[2])/3
 	end
 
+	#def imc 
+	#	@peso/(@talla*@talla)
+	#end
+
+	#def subescapular
+	#	(@subescapular[0] + @subescapular[1] + @subescapular[2])/3
+	#end
+
+	#def suprailiaco
+	#	(@suprailiaco[0] + @suprailiaco[1] + @suprailiaco[2])/3
+	#end
 
 end
 
