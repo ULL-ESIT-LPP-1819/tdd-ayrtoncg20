@@ -36,9 +36,13 @@ RSpec.describe Individuo do
 
 		describe "expectativas" do
 
-			 it "Existe un bicipital para el individuo" do
+			it "Existe un bicipital para el individuo" do
        		       		 expect(@ayrton.bicipital).to eq((2.5+2.6+2.7)/3)
 		 	end
+		
+			it "Existe un tricipital para el individuo" do
+				expect(@ayrton.tricipital).to eq((2.8+2.9+3.0)/3)
+			end
 		end
 	end
 end
