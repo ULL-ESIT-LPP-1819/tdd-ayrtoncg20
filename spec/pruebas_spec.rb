@@ -28,16 +28,17 @@ RSpec.describe Individuo do
       			expect(@ayrton.kind_of? Object).to eq(true)
     		end
 	end 
-	#describe Paciente do               
-	#	before :each do
-	#		@ayrton = Paciente.new(1, "Ayrton", "Crespo", "20-01-1995", "Estudiante", "No", 1, 83.0, 1.78, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8])
-	#	end
-	#
+	describe Paciente do               
+		before :each do
+			@ayrton = Paciente.new(1, "Ayrton", "Crespo", "20-01-1995", "Estudiante", "No", 1, 83.0, 1.78, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8])
+		end
+	
 
-	#describe "expectativas" do
+		describe "expectativas" do
 
-	#	 it "Existe un bicipital para el individuo" do
-         #       	 expect(@ayrton.bicipital).to eq((2.5+2.6+2.7)/3)
-	#	 end
-	#end
+			 it "Existe un bicipital para el individuo" do
+       		       		 expect(@ayrton.bicipital).to eq((2.5+2.6+2.7)/3)
+		 	end
+		end
+	end
 end
