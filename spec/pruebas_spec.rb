@@ -51,6 +51,10 @@ RSpec.describe Individuo do
 			it "Existe un suprailiaco para el individuo" do
 				expect(@ayrton.suprailiaco).to eq((3.4+3.5+3.6)/3)
 			end
+
+			it "Existe un IMC para el individuo" do
+				expect(@ayrton.imc).to eq(83.0/(1.78*1.78))
+			end
 		end
 	end
 end
