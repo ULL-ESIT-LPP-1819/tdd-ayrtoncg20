@@ -20,5 +20,14 @@ class Paciente < Individuo
 		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo	
 	end
 
+	def bicipital
+		(@bicipital[0] + @bicipital[1] + @bicipital[2])/3
+	end
+
+	def imc 
+		@peso/(@talla*@talla)
+	end
+
+
 end
 
