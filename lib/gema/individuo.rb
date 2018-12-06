@@ -1,4 +1,10 @@
-class Individuo
+
+module Individuo
+
+
+class Individuo::Individuo
+
+	include Comparable
 	
 	attr_accessor :numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo, :edad
 	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad)
@@ -63,5 +69,10 @@ class Paciente < Individuo
 	def brazo
 		(@brazo[0] + @brazo[1])/2
 	end
+
+	def <=> (other)
+		edad <=> other.edad
+	end 
 end
 
+end

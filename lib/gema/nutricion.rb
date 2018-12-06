@@ -55,5 +55,9 @@ module PruebasNutricion
 		def to_s
 			"[#{nombre_etiqueta}, Grasas=#{grasas}, GrasasSaturadas=#{grasas_saturadas}, HidratosCarbono=#{hidratos_carbono}, Azucares=#{azucares}, Proteinas=#{proteinas}, Sal=#{sal}]:"
 		end
+		
+		def <=>(other)
+			kilocalorias <=> other.kilocalorias
+		end
 	end	
 end	
