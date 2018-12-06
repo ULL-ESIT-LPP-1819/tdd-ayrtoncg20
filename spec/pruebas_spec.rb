@@ -183,15 +183,15 @@ RSpec.describe Individuo do
 		end
 	end
 
-	describe PruebasNutricion do
+	describe PruebasNutricion::PruebasNutricion do
 		before :each do
-			@cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+			@cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
 		end
 	
 		describe "expectativas" do
 		
 			it "Existe un método para comprobar el tipo de objeto" do
-                                expect(@cereales_chocolate.instance_of? PruebasNutricion).to eq(true)
+                                expect(@cereales_chocolate.instance_of? PruebasNutricion::PruebasNutricion).to eq(true)
                                 expect(@cereales_chocolate.instance_of? Object).not_to eq(true)
                                 expect(@cereales_chocolate.instance_of? BasicObject).not_to eq(true)
                                 expect(@cereales_chocolate).to respond_to(:nombre_etiqueta, :grasas, :grasas_saturadas, :hidratos_carbono, :azucares, :proteinas, :sal)
@@ -202,12 +202,12 @@ RSpec.describe Individuo do
                         end
 
                         it "Existe un método para comprobar la clase de un objeto" do
-                                expect(@cereales_chocolate.class).to eq(PruebasNutricion)
-                                expect(@cereales_chocolate.is_a? PruebasNutricion).to eq(true)
+                                expect(@cereales_chocolate.class).to eq(PruebasNutricion::PruebasNutricion)
+                                expect(@cereales_chocolate.is_a? PruebasNutricion::PruebasNutricion).to eq(true)
                         end
 
                         it "Existe un método para comprobar la jerarquía de un objeto" do
-                                expect(@cereales_chocolate.kind_of? PruebasNutricion).to eq(true)
+                                expect(@cereales_chocolate.kind_of? PruebasNutricion::PruebasNutricion).to eq(true)
                                 expect(@cereales_chocolate.kind_of? BasicObject).to eq(true)
                                 expect(@cereales_chocolate.kind_of? Object).to eq(true)
                         end

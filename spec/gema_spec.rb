@@ -1,9 +1,16 @@
 require 'spec_helper'
 
-RSpec.describe PruebasNutricion do
+RSpec.describe PruebasNutricion::PruebasNutricion do
 	before :all do
 		
-		@cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+		@cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+		@cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+                @cereales_miel = PruebasNutricion::PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
+                @donettes = PruebasNutricion::PruebasNutricion.new("Donettes", 1.0, 0.5, 89.0, 9.0, 9.0, 1.9)
+                @galletas = PruebasNutricion::PruebasNutricion.new("Galletas", 0.8, 0.1, 34.0, 2.0, 3.0, 3.6)
+                @leche = PruebasNutricion::PruebasNutricion.new("Leche", 0.8, 0.1, 10.0, 2.0, 1.0, 1.0)
+                @tomate = PruebasNutricion::PruebasNutricion.new("Tomate", 0.4, 0.5, 42.0, 3.0, 4.0, 0.5)
+                @mermelada = PruebasNutricion::PruebasNutricion.new("Mermelada", 0.8, 0.6, 23.0, 15.0, 8.0, 1.4)
 
 	end
 
@@ -59,25 +66,19 @@ RSpec.describe PruebasNutricion do
 			expect(@cereales_chocolate.to_s).to eq("[#{@cereales_chocolate.nombre_etiqueta}, Grasas=#{@cereales_chocolate.grasas}, GrasasSaturadas=#{@cereales_chocolate.grasas_saturadas}, HidratosCarbono=#{@cereales_chocolate.hidratos_carbono}, Azucares=#{@cereales_chocolate.azucares}, Proteinas=#{@cereales_chocolate.proteinas}, Sal=#{@cereales_chocolate.sal}]:")
 		end 
 
-		#Comparable informacion nutricional de los alimentos
-
-		it "Alimentos con el mismo nombre" do
-			@cereales_de_chocolate = PruebasNutricion.new('Cereales De Chocolate', 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
-			expect(@cereales_chocolate==@cereales_de_chocolate).to eq(true)
-		end
 	end
 
 
 	describe Lista do 
 		before :all do
 			@lista = Lista.new()
-		        @cereales_chocolate = PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
-			@cereales_miel = PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
-			@donettes = PruebasNutricion.new("Donettes", 1.0, 0.5, 89.0, 9.0, 9.0, 1.9)
-			@galletas = PruebasNutricion.new("Galletas", 0.8, 0.1, 34.0, 2.0, 3.0, 3.6)
-			@leche = PruebasNutricion.new("Leche", 0.8, 0.1, 10.0, 2.0, 1.0, 1.0)
-			@tomate = PruebasNutricion.new("Tomate", 0.4, 0.5, 42.0, 3.0, 4.0, 0.5)
-			@mermelada = PruebasNutricion.new("Mermelada", 0.8, 0.6, 23.0, 15.0, 8.0, 1.4)
+		        @cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+			@cereales_miel = PruebasNutricion::PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
+			@donettes = PruebasNutricion::PruebasNutricion.new("Donettes", 1.0, 0.5, 89.0, 9.0, 9.0, 1.9)
+			@galletas = PruebasNutricion::PruebasNutricion.new("Galletas", 0.8, 0.1, 34.0, 2.0, 3.0, 3.6)
+			@leche = PruebasNutricion::PruebasNutricion.new("Leche", 0.8, 0.1, 10.0, 2.0, 1.0, 1.0)
+			@tomate = PruebasNutricion::PruebasNutricion.new("Tomate", 0.4, 0.5, 42.0, 3.0, 4.0, 0.5)
+			@mermelada = PruebasNutricion::PruebasNutricion.new("Mermelada", 0.8, 0.6, 23.0, 15.0, 8.0, 1.4)
 		end
 
 		describe "Listas" do
@@ -134,6 +135,23 @@ RSpec.describe PruebasNutricion do
 		end
 		
 	end
-		
+
+
+	describe Comparable do
+		before :all do
+			@cereales_de_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+		end
+
+                describe "Pruebas para comprobar que dos alimentos son iguales" do
+                	it "Alimentos con el mismo nombre" do
+				expect(@cereales_chocolate.sal==@cereales_de_chocolate.sal).to eq(true)
+			end
+			it "Comparacion de nutrientres entre los alimentos" do
+				expect(@cereales_chocolate.sal==@cereales_miel.sal).to eq(false)
+				expect(@cereales_chocolate.proteinas>@cereales_miel.proteinas).to eq(true)
+				expect(@cereales_chocolate.azucares<@donettes.azucares).to eq(true)
+			end
+              	end
+	end	
 end
 
