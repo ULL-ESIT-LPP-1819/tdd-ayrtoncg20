@@ -69,9 +69,9 @@ RSpec.describe PruebasNutricion::PruebasNutricion do
 	end
 
 
-	describe Lista do 
+	describe Lista::Lista do 
 		before :all do
-			@lista = Lista.new()
+			@lista = Lista::Lista.new()
 		        @cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
 			@cereales_miel = PruebasNutricion::PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
 			@donettes = PruebasNutricion::PruebasNutricion.new("Donettes", 1.0, 0.5, 89.0, 9.0, 9.0, 1.9)
