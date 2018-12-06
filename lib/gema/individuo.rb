@@ -4,9 +4,10 @@ module Individuo
 
 class Individuo::Individuo
 
-	include Comparable
-	
 	attr_accessor :numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo, :edad
+
+	include Comparable 
+
 	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad)
 		@numero_historia, @nombre, @apellido, @fecha_nacimiento, @ocupacion, @fumador, @sexo, @edad = numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad
 	end
@@ -14,6 +15,9 @@ class Individuo::Individuo
 	def to_s
 		"[Numero De Historia=#{@numero_historia}, Nombre=#{@nombre}, Apellido=#{@apellido}, Fecha De Nacimiento=#{@fecha_nacimiento}, Ocupacion=#{@ocupacion}, Fumador=#{@fumador}, Sexo=#{@sexo}, Edad=#{@edad}]:"
 	end
+
+
+
 end
 
 
@@ -70,9 +74,11 @@ class Paciente < Individuo
 		(@brazo[0] + @brazo[1])/2
 	end
 
-	def <=> (other)
-		edad <=> other.edad
-	end 
+	def <=>(otro)
+		edad <=> otro.edad
+        end
+
+ 
 end
 
 end
