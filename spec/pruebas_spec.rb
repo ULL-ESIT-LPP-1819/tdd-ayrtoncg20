@@ -211,6 +211,40 @@ RSpec.describe Individuo::Individuo do
                         	expect(@lista.kind_of? BasicObject).to eq(true)
                         	expect(@lista.kind_of? Object).to eq(true)
                 	end
+			
+			it "Existe una lista que ya no está vacía" do
+                                expect(@lista.empty).to eq(true)
+                        end
+
+			it "Existe una lista vacia" do
+				expect(@lista.empty).to eq(true)
+			end
+
+
+                        it "Ordenando con sort" do
+                                @lista.insertar_nodo(@crespo)
+                                @lista.insertar_nodo(@saray)
+                                @lista.insertar_nodo(@rosy)
+#                                expect(@lista.sort).to eq([@crespo,@saray, @rosy])
+                        end
+
+                        it "Ordenando con collect" do
+                                expect(@lista.collect { |i| i }).to eq([@crespo,@saray,@rosy])
+                        end
+
+                        it "Función Min" do
+#                               expect(@lista.min).to eq(@saray)
+                        end
+
+                        it "Función max" do
+                            #    expect(@lista.max).to eq(@rosy)
+                        end
+
+                        it "Select" do
+                             #   expect(@lista.select { |i| i.edad.round % 2 == 0}).to eq([@saray])
+                        end
+
+
 		end
 	end
 
