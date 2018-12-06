@@ -115,11 +115,30 @@ RSpec.describe Individuo::Individuo do
 		end
 
 		describe "Pruebas para comparar individuos" do
-                        it "Comparacion de nutrientres entre los alimentos" do
-                                expect(@ayrton.edad==@eduardo.edad).to eq(true)
-                                expect(@ayrton.peso<@rosy.peso).to eq(true)
-                                expect(@ayrton.talla>@saray.talla).to eq(true)
+                        it "Comparacion menor estricto de la edad" do
+				expect(@ayrton < @rosy).to eq(true)
+				expect(@rosy < @ayrton).to eq(false)
                         end
+
+			it "Comparacion mayor estricto de la edad" do
+				expect(@rosy > @ayrton).to eq(true)
+				expect(@ayrton > @rosy).to eq(false)
+			end
+			
+			it "Comparacion igual de la edad" do
+				expect(@ayrton == @eduardo).to eq(true)
+				expect(@ayrton == @rosy).to eq(false)
+			end
+		
+			it "Comparacion menor igual de la edad" do
+				expect(@ayrton <= @rosy).to eq(true)
+				expect(@rosy <= @ayrton).to eq(false)
+			end
+			
+			it "Comparacion mayor igual de la edad" do
+				expect(@ayrton >= @saray).to eq(true)
+				expect(@saray >= @ayrton).to eq(false)
+			end
                 end
 	end
 
