@@ -58,7 +58,15 @@ RSpec.describe PruebasNutricion do
 		it "Existe una etiqueta formateada" do
 			expect(@cereales_chocolate.to_s).to eq("[#{@cereales_chocolate.nombre_etiqueta}, Grasas=#{@cereales_chocolate.grasas}, GrasasSaturadas=#{@cereales_chocolate.grasas_saturadas}, HidratosCarbono=#{@cereales_chocolate.hidratos_carbono}, Azucares=#{@cereales_chocolate.azucares}, Proteinas=#{@cereales_chocolate.proteinas}, Sal=#{@cereales_chocolate.sal}]:")
 		end 
+
+		#Comparable informacion nutricional de los alimentos
+
+		it "Alimentos con el mismo nombre" do
+			@cereales_de_chocolate = PruebasNutricion.new('Cereales De Chocolate', 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+			expect(@cereales_chocolate==@cereales_de_chocolate).to eq(true)
+		end
 	end
+
 
 	describe Lista do 
 		before :all do
@@ -126,5 +134,6 @@ RSpec.describe PruebasNutricion do
 		end
 		
 	end
+		
 end
 
