@@ -4,8 +4,7 @@ RSpec.describe PruebasNutricion::PruebasNutricion do
 	before :all do
 		
 		@cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
-		@cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
-                @cereales_miel = PruebasNutricion::PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
+		@cereales_miel = PruebasNutricion::PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
                 @donettes = PruebasNutricion::PruebasNutricion.new("Donettes", 1.0, 0.5, 89.0, 9.0, 9.0, 1.9)
                 @galletas = PruebasNutricion::PruebasNutricion.new("Galletas", 0.8, 0.1, 34.0, 2.0, 3.0, 3.6)
                 @leche = PruebasNutricion::PruebasNutricion.new("Leche", 0.8, 0.1, 10.0, 2.0, 1.0, 1.0)
@@ -104,7 +103,8 @@ RSpec.describe PruebasNutricion::PruebasNutricion do
 				expect(@lista.insertar_nodo(@tomate)).to eq(@tomate)
 				expect(@lista.insertar_nodo(@mermelada)).to eq(@mermelada)
  			end
-
+                        
+		
 			it "Existe una lista que ya no está vacía" do
 				expect(@lista.empty).to eq(false)
 			end
@@ -132,6 +132,35 @@ RSpec.describe PruebasNutricion::PruebasNutricion do
 				expect(@lista.extraer_nodo_head.sal).to be <= 6
 				expect(@lista.extraer_nodo_head.sal).to be <= 6				
 			end
+
+                        it "Existe una lista que ya no está vacía" do
+                                expect(@lista.empty).to eq(true)
+                        end
+
+		
+			it "Ordenando con sort" do
+				@lista.insertar_nodo(@mermelada)
+				@lista.insertar_nodo(@cereales_miel)
+				@lista.insertar_nodo(@cereales_chocolate)
+                              	expect(@lista.sort).to eq([@mermelada,@cereales_miel, @cereales_chocolate])
+                        end
+
+			it "Ordenando con collect" do
+                                expect(@lista.collect { |i| i }).to eq([@mermelada,@cereales_miel, @cereales_chocolate])
+                        end
+   
+                        it "Función Min" do
+				expect(@lista.min).to eq(@mermelada)
+			end
+   
+                        it "Función max" do
+				expect(@lista.max).to eq(@cereales_chocolate)
+			end
+			
+ 			it "Select" do
+				expect(@lista.select { |i| i.hidratos_carbono.round % 2 == 0}).to eq([@cereales_chocolate])
+			end  
+
 		end
 		
 	end
