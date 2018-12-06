@@ -142,16 +142,33 @@ RSpec.describe PruebasNutricion::PruebasNutricion do
 			@cereales_de_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
 		end
 
-                describe "Pruebas para comprobar que dos alimentos son iguales" do
-                	it "Alimentos con el mismo nombre" do
-				expect(@cereales_chocolate.sal==@cereales_de_chocolate.sal).to eq(true)
+                describe "Comparacion de alimentos" do
+                	it "Comparando el mayor estricto de las kilocalorias" do
+				expect(@cereales_chocolate > @cereales_miel).to eq(true)
+				expect(@cereales_miel > @cereales_chocolate).to eq(false)
 			end
-			it "Comparacion de nutrientres entre los alimentos" do
-				expect(@cereales_chocolate.sal==@cereales_miel.sal).to eq(false)
-				expect(@cereales_chocolate.proteinas>@cereales_miel.proteinas).to eq(true)
-				expect(@cereales_chocolate.azucares<@donettes.azucares).to eq(true)
+			
+			it "Comparando el menor estricto de las kilocalorias" do
+				expect(@cereales_chocolate < @cereales_miel).to eq(false)
+				expect(@cereales_miel < @cereales_chocolate).to eq(true)
+			end
+			
+			it "Comparando el igual de las kilocalorias" do
+				expect(@cereales_chocolate == @cereales_chocolate).to eq(true)
+				expect(@cereales_chocolate == @cereales_miel).to eq(false)
+			end
+
+			it "Comparando el mayor igual de las kilocalorias" do
+				expect(@cereales_chocolate >= @cereales_miel).to eq(true)
+				expect(@cereales_miel >= @cereales_chocolate).to eq(false)
+			end
+			
+			it "Comparando el menor igual de las kilocalorias" do
+				expect(@cereales_chocolate <= @cereales_miel).to eq(false)
+				expect(@cereales_miel <= @cereales_chocolate).to eq(true)
 			end
               	end
+
 	end	
 end
 
