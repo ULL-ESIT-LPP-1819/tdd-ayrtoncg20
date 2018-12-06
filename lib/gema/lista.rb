@@ -1,3 +1,4 @@
+
 # create a Struct with :value, :next and :prev
 Node = Struct.new(:value, :next, :prev)
 
@@ -60,6 +61,14 @@ class Lista
 			@size -= 1
 		end
 		return valor
+	end
+
+	def each 
+		inicio = @head	
+		while (inicio != nil)
+			yield inicio.value
+			inicio = inicio.next			
+		end
 	end	
 end
 end
