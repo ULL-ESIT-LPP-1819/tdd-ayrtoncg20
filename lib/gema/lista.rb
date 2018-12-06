@@ -1,9 +1,13 @@
 # create a Struct with :value, :next and :prev
 Node = Struct.new(:value, :next, :prev)
 
+module Lista
+
 class Lista
 
 	attr_accessor :head, :tail, :size
+
+	include Enumerable
 
 	def initialize()
 		@head = Node.new(nil,nil,nil)
@@ -57,4 +61,5 @@ class Lista
 		end
 		return valor
 	end	
+end
 end
