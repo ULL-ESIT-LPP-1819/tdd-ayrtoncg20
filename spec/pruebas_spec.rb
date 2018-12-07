@@ -222,26 +222,26 @@ RSpec.describe Individuo::Individuo do
 
 
                         it "Ordenando con sort" do
-                                @lista.insertar_nodo(@crespo)
+                                @lista.insertar_nodo(@joseLuis)
                                 @lista.insertar_nodo(@saray)
                                 @lista.insertar_nodo(@rosy)
-#                                expect(@lista.sort).to eq([@crespo,@saray, @rosy])
+                                expect(@lista.sort).to eq([@saray,@rosy,@joseLuis])
                         end
 
                         it "Ordenando con collect" do
-                                expect(@lista.collect { |i| i }).to eq([@crespo,@saray,@rosy])
+                                expect(@lista.collect { |i| i }).to eq([@joseLuis,@saray,@rosy])
                         end
 
                         it "Función Min" do
-#                               expect(@lista.min).to eq(@saray)
+                               expect(@lista.min).to eq(@saray)
                         end
 
                         it "Función max" do
-                            #    expect(@lista.max).to eq(@rosy)
+                                expect(@lista.max).to eq(@joseLuis)
                         end
 
                         it "Select" do
-                             #   expect(@lista.select { |i| i.edad.round % 2 == 0}).to eq([@saray])
+                                expect(@lista.select { |i| i.edad.round % 2 == 0}).to eq([@saray,@rosy])
                         end
 
 
