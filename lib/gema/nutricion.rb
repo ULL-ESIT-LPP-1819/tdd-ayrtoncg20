@@ -24,25 +24,37 @@ module PruebasNutricion
 			@nombre
 		end
 
+		#Funcion para el atributo grasas
+
 		def grasas
 			@grasas
 		end
 	
+		#Funcion para el atributo grasas saturadas
+
 		def grasas_saturadas
 			@grasas_saturadas
 		end
+
+		#Funcion para el atributo hidratos de carbono
 		
 		def hidratos_carbono
 			@hidratos_carbono
 		end
 
+		#Funcion para el atributo azucares
+
 		def azucares
 			@azucares
 		end
 
+		#Funcion para el atributo proteinas
+
 		def proteinas
 			@proteinas
 		end
+
+		#Funcion para el atributo sal
 
 		def sal
 			@sal
