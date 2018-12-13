@@ -117,6 +117,8 @@ class Paciente < Individuo
 		edad <=> otro.edad
         end
 
+   
+
  
 end
 
