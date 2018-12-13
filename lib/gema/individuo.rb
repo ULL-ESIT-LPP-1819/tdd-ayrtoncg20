@@ -40,9 +40,9 @@ class Paciente < Individuo
 
 	#Metodo initialize para iniciar los atributos
 	
-	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad, peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo)
+	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad, peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo, factor_actividad_fisica)
 		super(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad)
-		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo
+		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo, @factor_actividad_fisica = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo, factor_actividad_fisica
 	end
 
 
@@ -136,6 +136,15 @@ class Paciente < Individuo
     def efecto_termogeno_mujeres
     	@efecto_termogeno_mujeres = (gasto_energetico_basal_mujeres * 0.10)
     end
+
+    def gasto_actividad_fisica_hombres
+    	@gasto_actividad_fisica_hombres = gasto_energetico_basal_hombres * @factor_actividad_fisica
+    end
+
+    def gasto_actividad_fisica_mujeres
+    	@gasto_actividad_fisica_mujeres = gasto_energetico_basal_mujeres * @factor_actividad_fisica
+    end
+
  
 end
 

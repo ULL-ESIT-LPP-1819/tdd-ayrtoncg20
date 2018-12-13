@@ -34,11 +34,11 @@ RSpec.describe Individuo::Individuo do
 	end 
 	describe Individuo::Paciente do               
 		before :each do
-			@ayrton = Individuo::Paciente.new(1, "Ayrton", "Crespo", "20-01-1995", "Estudiante", "No", 1, 23, 83.0, 1.78, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8])
-			@eduardo = Individuo::Paciente.new(2, "Eduardo", "Escobar", "13-02-1995", "Estudiante", "No", 1, 23, 85.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1])
-            @saray = Individuo::Paciente.new(3, "Saray", "Garcia", "01-02-2008", "Estudiante", "No", 0, 10, 69.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1])
-            @joseLuis = Individuo::Paciente.new(4, "Jose Luis", "Crespo", "27-03-1961", "Parado", "No", 1, 55, 105.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8])
-            @rosy = Individuo::Paciente.new(5, "Rosa", "Garcia", "01-05-1962", "Parada", "No", 0, 54, 130.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1])
+			@ayrton = Individuo::Paciente.new(1, "Ayrton", "Crespo", "20-01-1995", "Estudiante", "No", 1, 23, 83.0, 1.78, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8], 0.54)
+			@eduardo = Individuo::Paciente.new(2, "Eduardo", "Escobar", "13-02-1995", "Estudiante", "No", 1, 23, 85.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1], 0.27)
+            @saray = Individuo::Paciente.new(3, "Saray", "Garcia", "01-02-2008", "Estudiante", "No", 0, 10, 69.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1], 0.54)
+            @joseLuis = Individuo::Paciente.new(4, "Jose Luis", "Crespo", "27-03-1961", "Parado", "No", 1, 55, 105.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8], 0.12)
+            @rosy = Individuo::Paciente.new(5, "Rosa", "Garcia", "01-05-1962", "Parada", "No", 0, 54, 130.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1], 0)
 		end
 	
 
@@ -170,22 +170,23 @@ RSpec.describe Individuo::Individuo do
 			end
 
 			it "Gasto por actividad física" do
-				expect(@ayrton.gasto_actividad_fisica).to eq(34)
-				expect(@eduardo.gasto_actividad_fisica).to eq(34)
-				expect(@saray.gasto_actividad_fisica).to eq(34)
-				expect(@joseLuis.gasto_actividad_fisica).to eq(34)
-				expect(@rosy.gasto_actividad_fisica).to eq(34)
+				expect(@ayrton.gasto_actividad_fisica_hombres).to eq(899.9100000000001)
+				expect(@eduardo.gasto_actividad_fisica_hombres).to eq(446.9175)
+				expect(@saray.gasto_actividad_fisica_mujeres).to eq(844.4250000000001)
+				expect(@joseLuis.gasto_actividad_fisica_hombres).to eq(199.68)
+				expect(@rosy.gasto_actividad_fisica_mujeres).to eq(0.0)
+			end
 		end
 	end
 
 	describe Lista::Lista do
 		before :all do
 			@lista = Lista::Lista.new()
-				@sara = Individuo::Paciente.new(1, "Sara", "Perez", "17-08-1995", "Estudiante", "No", 0, 23, 64.0, 1.64, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8])
-				@eduardo = Individuo::Paciente.new(2, "Eduardo", "Escobar", "13-02-1995", "Estudiante", "No", 1, 23, 85.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1])
-				@saray = Individuo::Paciente.new(3, "Saray", "Garcia", "01-02-2008", "Estudiante", "No", 0, 10, 69.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1])
-				@joseLuis = Individuo::Paciente.new(4, "Jose Luis", "Crespo", "27-03-1961", "Parado", "No", 1, 55, 105.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8])
-				@rosy = Individuo::Paciente.new(5, "Rosa", "Garcia", "01-05-1962", "Parada", "No", 0, 54, 130.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1])
+				@sara = Individuo::Paciente.new(1, "Sara", "Perez", "17-08-1995", "Estudiante", "No", 0, 23, 64.0, 1.64, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8], 0)
+				@eduardo = Individuo::Paciente.new(2, "Eduardo", "Escobar", "13-02-1995", "Estudiante", "No", 1, 23, 85.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1], 0.27)
+				@saray = Individuo::Paciente.new(3, "Saray", "Garcia", "01-02-2008", "Estudiante", "No", 0, 10, 69.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1], 0.54)
+				@joseLuis = Individuo::Paciente.new(4, "Jose Luis", "Crespo", "27-03-1961", "Parado", "No", 1, 55, 105.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8], 0.12)
+				@rosy = Individuo::Paciente.new(5, "Rosa", "Garcia", "01-05-1962", "Parada", "No", 0, 54, 130.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1], 0)
 			end
 
 
