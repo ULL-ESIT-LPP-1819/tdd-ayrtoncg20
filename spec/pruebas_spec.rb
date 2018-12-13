@@ -178,11 +178,11 @@ RSpec.describe Individuo::Individuo do
 			end
 
 			it "Gasto energético total" do
-				expect(@ayrton.gasto_energetico_total_hombres).to eq(35)
-				expect(@eduardo.gasto_energetico_total_hombres).to eq(35)
-				expect(@saray.gasto_energetico_total_mujeres).to eq(35)
-				expect(@joseLuis.gasto_energetico_total_hombres).to eq(35)
-				expect(@rosy.gasto_energetico_total_mujeres).to eq(35)
+				expect(@ayrton.gasto_energetico_total_hombres).to eq(2733.0600000000004)
+				expect(@eduardo.gasto_energetico_total_hombres).to eq(2267.6925)
+				expect(@saray.gasto_energetico_total_mujeres).to eq(2564.55)
+				expect(@joseLuis.gasto_energetico_total_hombres).to eq(2030.0800000000002)
+				expect(@rosy.gasto_energetico_total_mujeres).to eq(2286.625)
 			end
 		end
 	end

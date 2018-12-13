@@ -145,7 +145,13 @@ class Paciente < Individuo
     	@gasto_actividad_fisica_mujeres = gasto_energetico_basal_mujeres * @factor_actividad_fisica
     end
 
- 
+    def gasto_energetico_total_hombres
+    	@gasto_energetico_total_hombres = gasto_energetico_basal_hombres + efecto_termogeno_hombres + gasto_actividad_fisica_hombres
+    end
+
+	def gasto_energetico_total_mujeres
+    	@gasto_energetico_total_mujeres = gasto_energetico_basal_mujeres + efecto_termogeno_mujeres + gasto_actividad_fisica_mujeres
+    end 
 end
 
 end
