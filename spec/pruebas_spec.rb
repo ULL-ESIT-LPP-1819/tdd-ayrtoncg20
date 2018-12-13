@@ -212,6 +212,43 @@ RSpec.describe Individuo::Individuo do
            		gasto_energetico_paciente = gasto_energetico_paciente * 0.10
            		expect(total_kilocalorias >= gasto_energetico_paciente).to eq(true)
         	end
+        	it "Menú: Cumple las exigencias caloricas del paciente" do
+           		kilocalorias_menu = @menu2.map{ |i| i.kilojulios}
+           
+           		total_kilocalorias = kilocalorias_menu.reduce(:+)
+           
+           		gasto_energetico_paciente = @eduardo.gasto_energetico_total_hombres
+           		gasto_energetico_paciente = gasto_energetico_paciente * 0.10
+           		expect(total_kilocalorias >= gasto_energetico_paciente).to eq(true)
+        	end
+        	it "Menú: Cumple las exigencias caloricas del paciente" do
+           		kilocalorias_menu = @menu3.collect{ |x| x.kilojulios}
+           
+           		total_kilocalorias = kilocalorias_menu.reduce(:+)
+           
+           		gasto_energetico_paciente = @saray.gasto_energetico_total_mujeres
+           		gasto_energetico_paciente = gasto_energetico_paciente * 0.10
+           		expect(total_kilocalorias >= gasto_energetico_paciente).to eq(true)
+        	end
+        	it "Menú: Cumple las exigencias caloricas del paciente" do
+           		kilocalorias_menu = @menu4.collect{ |x| x.kilojulios}
+           
+           		total_kilocalorias = kilocalorias_menu.reduce(:+)
+           
+           		gasto_energetico_paciente = @joseLuis.gasto_energetico_total_hombres
+           		gasto_energetico_paciente = gasto_energetico_paciente * 0.10
+           		expect(total_kilocalorias >= gasto_energetico_paciente).to eq(true)
+        	end
+        	it "Menú: Cumple las exigencias caloricas del paciente" do
+        		menu6 = @menu1.zip(@menu2)
+           		kilocalorias_menu = menu6.collect{ |x, index| x.kilojulios}
+           
+           		total_kilocalorias = kilocalorias_menu.reduce(:+)
+           
+           		gasto_energetico_paciente = @rosy.gasto_energetico_total_mujeres
+           		gasto_energetico_paciente = gasto_energetico_paciente * 0.10
+           		expect(total_kilocalorias >= gasto_energetico_paciente).to eq(true)
+        	end
 		end
 	end
 
