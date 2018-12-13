@@ -203,6 +203,15 @@ RSpec.describe Individuo::Individuo do
                 @menu5 = [@tomate, @donettes, @cereales_miel]
 			end
 
+			it "Menú: Cumple las exigencias caloricas del paciente" do
+           		kilocalorias_menu = @menu1.map{ |i| i.kilojulios}
+           
+           		total_kilocalorias = kilocalorias_menu.reduce(:+)
+           
+           		gasto_energetico_paciente = @ayrton.gasto_energetico_total_hombres
+           		gasto_energetico_paciente = gasto_energetico_paciente * 0.10
+           		expect(total_kilocalorias >= gasto_energetico_paciente).to eq(true)
+        	end
 		end
 	end
 
