@@ -168,6 +168,13 @@ RSpec.describe Individuo::Individuo do
 				expect(@joseLuis.efecto_termogeno_hombres).to eq(166.4)
 				expect(@rosy.efecto_termogeno_mujeres).to eq(207.875)
 			end
+
+			it "Gasto por actividad física" do
+				expect(@ayrton.gasto_actividad_fisica).to eq(34)
+				expect(@eduardo.gasto_actividad_fisica).to eq(34)
+				expect(@saray.gasto_actividad_fisica).to eq(34)
+				expect(@joseLuis.gasto_actividad_fisica).to eq(34)
+				expect(@rosy.gasto_actividad_fisica).to eq(34)
 		end
 	end
 
