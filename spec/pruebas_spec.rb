@@ -176,6 +176,14 @@ RSpec.describe Individuo::Individuo do
 				expect(@joseLuis.gasto_actividad_fisica_hombres).to eq(199.68)
 				expect(@rosy.gasto_actividad_fisica_mujeres).to eq(0.0)
 			end
+
+			it "Gasto energético total" do
+				expect(@ayrton.gasto_energetico_total_hombres).to eq(35)
+				expect(@eduardo.gasto_energetico_total_hombres).to eq(35)
+				expect(@saray.gasto_energetico_total_mujeres).to eq(35)
+				expect(@joseLuis.gasto_energetico_total_hombres).to eq(35)
+				expect(@rosy.gasto_energetico_total_mujeres).to eq(35)
+			end
 		end
 	end
 
