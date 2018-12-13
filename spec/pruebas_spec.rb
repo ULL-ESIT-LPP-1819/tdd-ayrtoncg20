@@ -149,6 +149,14 @@ RSpec.describe Individuo::Individuo do
 				expect(@joseLuis.peso_teorico_ideal).to eq(63.49999999999999)
 				expect(@rosy.peso_teorico_ideal).to eq(62.74999999999999)
 			end
+
+			it "Gasto energético basal hombres" do
+				expect(@ayrton.gasto_energetico_basal_hombres).to eq(1753.5)
+			end
+
+			it "Gasto energético basal mujeres" do
+
+			end
 		end
 	end
 
