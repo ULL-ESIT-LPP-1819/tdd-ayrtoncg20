@@ -144,6 +144,10 @@ RSpec.describe Individuo::Individuo do
         describe "Métodos para los Menús Dietéticos" do
 			it "Peso teorico ideal" do
 				expect(@ayrton.peso_teorico_ideal).to eq(71)
+				expect(@eduardo.peso_teorico_ideal).to eq(67.25)
+				expect(@saray.peso_teorico_ideal).to eq(47.75)
+				expect(@joseLuis.peso_teorico_ideal).to eq(63.49999999999999)
+				expect(@rosy.peso_teorico_ideal).to eq(62.74999999999999)
 			end
 		end
 	end
