@@ -92,7 +92,7 @@ RSpec.describe Individuo::Individuo do
           			expect(@ayrton.instance_of? Individuo::Paciente).to eq(true)
 				expect(@ayrton.instance_of? Object).not_to eq(true)
 				expect(@ayrton.instance_of? BasicObject).not_to eq(true)
-				expect(@ayrton).to respond_to(:numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo, :edad, :peso, :talla, :cintura, :cadera, :bicipital, :tricipital, :subescapular, :suprailiaco, :brazo)
+				expect(@ayrton).to respond_to(:numero_historia, :nombre, :apellido, :fecha_nacimiento, :ocupacion, :fumador, :sexo, :edad, :peso_teorico_ideal, :peso, :talla, :cintura, :cadera, :bicipital, :tricipital, :subescapular, :suprailiaco, :brazo)
 				expect(@ayrton).to respond_to('to_s')
 				expect(@ayrton).to respond_to('imc')
 				expect(@ayrton).to respond_to('porcentajegrasa')
@@ -139,7 +139,13 @@ RSpec.describe Individuo::Individuo do
 				expect(@ayrton >= @saray).to eq(true)
 				expect(@saray >= @ayrton).to eq(false)
 			end
-                end
+        end
+
+        describe "Métodos para los Menús Dietéticos" do
+			it "Peso teorico ideal" do
+				expect(@ayrton.peso_teorico_ideal).to eq(71)
+			end
+		end
 	end
 
 	describe Lista::Lista do
@@ -278,10 +284,5 @@ RSpec.describe Individuo::Individuo do
                         end
 		end
 	end
-
-	describe "Métodos para los Menús Dietéticos" do
-		it "Peso teorico ideal" do
-			expect(ayrton.peso_teorico_ideal).to eq(78.75)
-		end
-	end	
+	
 end

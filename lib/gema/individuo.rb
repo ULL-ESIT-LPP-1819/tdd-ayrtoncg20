@@ -42,7 +42,7 @@ class Paciente < Individuo
 	
 	def initialize(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad, peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo)
 		super(numero_historia, nombre, apellido, fecha_nacimiento, ocupacion, fumador, sexo, edad)
-		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo	
+		@peso, @talla, @cintura, @cadera, @bicipital, @tricipital, @subescapular, @suprailiaco, @brazo = peso, talla, cintura, cadera, bicipital, tricipital, subescapular, suprailiaco, brazo
 	end
 
 
@@ -117,7 +117,9 @@ class Paciente < Individuo
 		edad <=> otro.edad
         end
 
-   
+    def peso_teorico_ideal
+    	@peso_teorico_ideal = (@talla - 1.50)*100 * 0.75 + 50
+    end 
 
  
 end
