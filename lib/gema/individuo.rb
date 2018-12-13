@@ -121,6 +121,13 @@ class Paciente < Individuo
     	@peso_teorico_ideal = (@talla - 1.50)*100 * 0.75 + 50
     end 
 
+    def gasto_energetico_basal_hombres
+    	@gasto_energetico_basal_hombres = ((10* @peso) + (6.25 * @talla * 100) - (5 * @edad) - 161)
+    end
+
+    def gasto_energetico_basal_mujeres
+    	@gasto_energetico_basal_mujeres = ((10* @peso) + (6.25 * @talla * 100) - (5 * @edad) + 5)
+    end
  
 end
 

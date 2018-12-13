@@ -151,11 +151,22 @@ RSpec.describe Individuo::Individuo do
 			end
 
 			it "Gasto energético basal hombres" do
-				expect(@ayrton.gasto_energetico_basal_hombres).to eq(1753.5)
+				expect(@ayrton.gasto_energetico_basal_hombres).to eq(1666.5)
+				expect(@eduardo.gasto_energetico_basal_hombres).to eq(1655.25)
+				expect(@joseLuis.gasto_energetico_basal_hombres).to eq(1664.0)
 			end
 
 			it "Gasto energético basal mujeres" do
+				expect(@saray.gasto_energetico_basal_mujeres).to eq(1563.75)
+				expect(@rosy.gasto_energetico_basal_mujeres).to eq(2078.75)
+			end
 
+			it "Efecto termógeno de los alimentos" do
+				expect(@ayrton.efecto_termogeno).to eq(30)
+				expect(@eduardo.efecto_termogeno).to eq(30)
+				expect(@saray.efecto_termogeno).to eq(30)
+				expect(@joseLuis.efecto_termogeno).to eq(30)
+				expect(@rosy.efecto_termogeno).to eq(30)
 			end
 		end
 	end
