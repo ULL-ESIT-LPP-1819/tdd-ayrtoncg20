@@ -162,11 +162,11 @@ RSpec.describe Individuo::Individuo do
 			end
 
 			it "Efecto termógeno de los alimentos" do
-				expect(@ayrton.efecto_termogeno).to eq(30)
-				expect(@eduardo.efecto_termogeno).to eq(30)
-				expect(@saray.efecto_termogeno).to eq(30)
-				expect(@joseLuis.efecto_termogeno).to eq(30)
-				expect(@rosy.efecto_termogeno).to eq(30)
+				expect(@ayrton.efecto_termogeno_hombres).to eq(166.65)
+				expect(@eduardo.efecto_termogeno_hombres).to eq(165.525)
+				expect(@saray.efecto_termogeno_mujeres).to eq(156.375)
+				expect(@joseLuis.efecto_termogeno_hombres).to eq(166.4)
+				expect(@rosy.efecto_termogeno_mujeres).to eq(207.875)
 			end
 		end
 	end

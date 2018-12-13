@@ -128,6 +128,14 @@ class Paciente < Individuo
     def gasto_energetico_basal_mujeres
     	@gasto_energetico_basal_mujeres = ((10* @peso) + (6.25 * @talla * 100) - (5 * @edad) + 5)
     end
+
+    def efecto_termogeno_hombres
+    	@efecto_termogeno_hombres = (gasto_energetico_basal_hombres * 0.10)
+    end
+
+    def efecto_termogeno_mujeres
+    	@efecto_termogeno_mujeres = (gasto_energetico_basal_mujeres * 0.10)
+    end
  
 end
 
