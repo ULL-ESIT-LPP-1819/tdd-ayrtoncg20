@@ -1,6 +1,5 @@
-
 require 'spec_helper'
-
+require 'benchmark'
 RSpec.describe Individuo::Individuo do
 	before :each do	
 
@@ -393,4 +392,136 @@ RSpec.describe Individuo::Individuo do
 		end
 	end
 	
+	describe PruebasNutricion::PruebasNutricion do 
+		before :all do
+			@array = []
+			@cereales_chocolate = PruebasNutricion::PruebasNutricion.new("Cereales de chocolate", 0.8, 0.2, 82.0, 7.0, 8.0, 1.6)
+			@cereales_miel = PruebasNutricion::PruebasNutricion.new("Cereales de miel", 0.8, 0.1, 69.0, 5.0, 6.0, 1.2)
+	        @donettes = PruebasNutricion::PruebasNutricion.new("Donettes", 1.0, 0.5, 89.0, 9.0, 9.0, 1.9)
+	        @galletas = PruebasNutricion::PruebasNutricion.new("Galletas", 0.8, 0.1, 34.0, 2.0, 3.0, 3.6)
+	        @leche = PruebasNutricion::PruebasNutricion.new("Leche", 0.8, 0.1, 10.0, 2.0, 1.0, 1.0)
+	        @tomate = PruebasNutricion::PruebasNutricion.new("Tomate", 0.4, 0.5, 42.0, 3.0, 4.0, 0.5)
+	        @mermelada = PruebasNutricion::PruebasNutricion.new("Mermelada", 0.8, 0.6, 23.0, 15.0, 8.0, 1.4)
+
+	        @menu1 = [@mermelada, @tomate, @leche]
+	        @menu2 = [@galletas, @leche, @cereales_chocolate]
+	        @menu3 = [@galletas, @leche, @cereales_miel]
+	        @menu4 = [@donettes, @leche, @cereales_chocolate]
+	        @menu5 = [@tomate, @donettes, @cereales_miel]
+	        @menu6 = [@leche, @mermelada, @donettes]
+	        @menu7 = [@cereales_miel, @cereales_chocolate, @leche]
+	        @menu8 = [@tomate, @cereales_miel, @cereales_chocolate]
+	        @menu9 = [@galletas, @tomate, @leche]
+	        @menu10 = [@galletas, @mermelada, @cereales_miel]
+
+            @array << @menu1
+            @array << @menu2
+            @array << @menu3
+            @array << @menu4
+            @array << @menu5
+            @array << @menu6
+            @array << @menu7
+            @array << @menu8
+            @array << @menu9
+            @array << @menu10
+
+			@lista_nueva = Lista::Lista.new()
+			@texenen = Individuo::Paciente.new(10, "Texenen", "Crespo", "17-08-1992", "Trabajador", "No", 1, 23, 64.0, 1.64, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8], 0)
+			@carolina = Individuo::Paciente.new(11, "Carolina", "Campos", "13-02-1988", "Estudiante", "No", 0, 24, 85.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1], 0.27)
+			@sonia = Individuo::Paciente.new(12, "Sonia", "Coello", "01-02-2008", "Estudiante", "No", 0, 10, 69.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1], 0.54)
+			@jose = Individuo::Paciente.new(13, "Jose", "Garcia", "27-03-1961", "Parado", "No", 1, 55, 105.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8], 0.12)
+			@pepe = Individuo::Paciente.new(14, "Pepe", "Rosa", "01-05-1962", "Parada", "No", 1, 54, 130.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1], 0)
+			@chano = Individuo::Paciente.new(15, "Chano", "Perez", "17-08-1992", "Trabajador", "No", 1, 28, 64.0, 1.64, [60,65], [80,87], [2.5,2.6,2.7], [2.8,2.9,3.0], [3.1,3.2,3.3], [3.4,3.5,3.6], [20.0,20.8], 0)
+			@felisa = Individuo::Paciente.new(16, "Felisa", "Rosa", "13-02-1988", "Estudiante", "No", 0, 45, 85.0, 1.73, [94,95], [100,102], [2.1,2.3,2.1], [1.8,1.9,1.0], [4.1,4.2,4.3], [6.4,5.5,6.6], [24.9,25.1], 0.27)
+			@lili = Individuo::Paciente.new(17, "Lili", "Garcia", "01-02-2008", "Estudiante", "No", 0, 17, 69.0, 1.47, [68,69], [89,90], [2.5,8.6,8.7], [2.8,8.9,8.0], [8.1,3.2,3.3], [8.4,3.5,3.6], [13.5,14.1], 0.54)
+			@nau = Individuo::Paciente.new(18, "Nau", "Garcia", "27-03-1961", "Parado", "No", 1, 51, 105.0, 1.68, [88,89], [86,87], [9.5,2.6,9.7], [2.9,9.9,3.0], [9.1,3.2,9.3], [6.4,9.5,3.6], [27.5,27.8], 0.12)
+			@aytha = Individuo::Paciente.new(19, "Aythami", "Garcia", "01-05-1962", "Parada", "No", 1, 25, 130.0, 1.67, [50,51], [72,73], [7.5,2.6,2.7], [7.8,2.9,3.0], [7.1,3.2,7.3], [3.4,7.5,7.6], [18.9,19.1], 0)
+		
+		end
+
+		describe "Pruebas" do
+
+			it "Existe un método para insertar elementos en una lista" do
+				expect(@lista_nueva.insertar_nodo(@texenen)).to eq(@texenen)
+				expect(@lista_nueva.insertar_nodo(@carolina)).to eq(@carolina)
+				expect(@lista_nueva.insertar_nodo(@sonia)).to eq(@sonia)
+				expect(@lista_nueva.insertar_nodo(@jose)).to eq(@jose)
+				expect(@lista_nueva.insertar_nodo(@pepe)).to eq(@pepe)
+				expect(@lista_nueva.insertar_nodo(@chano)).to eq(@chano)
+				expect(@lista_nueva.insertar_nodo(@felisa)).to eq(@felisa)
+				expect(@lista_nueva.insertar_nodo(@lili)).to eq(@lili)
+				expect(@lista_nueva.insertar_nodo(@nau)).to eq(@nau)
+				expect(@lista_nueva.insertar_nodo(@aytha)).to eq(@aytha)
+			end
+	
+			it "Existe un array NO vacío" do
+			    expect(@array[0]).to eq(@menu1)
+			    expect(@array[1]).to eq(@menu2)
+			    expect(@array[2]).to eq(@menu3)
+			    expect(@array[3]).to eq(@menu4)
+			    expect(@array[4]).to eq(@menu5)
+			    expect(@array[5]).to eq(@menu6)
+				expect(@array[6]).to eq(@menu7)
+				expect(@array[7]).to eq(@menu8)
+				expect(@array[8]).to eq(@menu9)
+				expect(@array[9]).to eq(@menu10)
+      		end
+
+      		it "Existe un método para ordenar el array y la lista mediante un for" do
+      			expect(@array.sort).to eq([@menu6, @menu1, @menu3, @menu2, @menu10, @menu9, @menu8, @menu5, @menu7, @menu4])
+      			expect(@lista_nueva.sort).to eq([@sonia, @lili, @texenen, @carolina, @aytha, @chano, @felisa, @nau, @pepe, @jose])
+      		end
+
+      		it "Existe un metodo para ordenar el array y la lista mediante for" do
+      			expect(@array.sort_for).to eq([@menu6, @menu1, @menu3, @menu2, @menu10, @menu9, @menu8, @menu5, @menu7, @menu4])
+      			expect(@lista_nueva.sort_for).to eq([@sonia, @lili, @texenen, @carolina, @aytha, @chano, @felisa, @nau, @pepe, @jose])
+      		end
+
+      		it "Existe un metodo para ordenar el array y la lista mediante each" do
+      			expect(@array.sort_each).to eq([@menu6, @menu1, @menu3, @menu2, @menu10, @menu9, @menu8, @menu5, @menu7, @menu4])
+    			#expect(@lista_nueva.sort_each).to eq([@sonia, @lili, @texenen, @carolina, @aytha, @chano, @felisa, @nau, @pepe, @jose])
+    		end
+
+
+    		it "Benchmark" do
+		        n = 1500
+		        Benchmark.bm do |x|
+		        	x.report("sort:") {n.times{@array.sort}}
+		        	x.report("sort_for:") {n.times{@array.sort_for}}
+		        	x.report("sort_each:") {n.times{@array.sort_each}}
+		        	x.report("sort:") {n.times{@lista_nueva.sort}}
+		        	x.report("sort_for:") {n.times{@lista_nueva.sort_for}}
+		        	x.report("sort_each:") {n.times{@lista_nueva.sort_each}}
+        		end
+      		end
+
+		end
+	end
+
+
+
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
