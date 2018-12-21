@@ -91,5 +91,20 @@ class Lista
 			inicio = inicio.next			
 		end
 	end	
+
+	def sort_for
+		@aux = self.map { |x| x }
+		
+		for x in 0..@aux.length-1
+			for y in 0..@aux.length-2-x
+				if ( @aux[y] > @aux[y+1] )
+					@aux[y], @aux[y+1] = @aux[y+1], @aux[y]
+				end
+			end
+		end
+
+		return @aux
+		
+	end
 end
 end
